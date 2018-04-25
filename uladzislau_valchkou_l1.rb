@@ -1,27 +1,36 @@
 #!/bin/env ruby
 
 def task_1(input)
-  task_result = []
+  task_result = ''
   input.each_line do |line|
     if line.downcase.include? 'error'
       task_result << line
     end
   end
-  task_result
+  task_result[0..-2]
 end
 
 def task_2(input)
   task_result = []
   input.each_line do |line|
     unless line.downcase.include? 'error'
-      task_result << line.split('[')[1].split(']')[0] + ' FROM: ' + line.split('-')[0] + 'TO:' + line.upcase.split('POST')[1].split('"')[0]
+      a = line.split('[')[1].split(']')[0]
+      b = line.split('-')[0]
+      c = line.upcase.split('"')[1].split(' ')
+      if c.length == 3
+        c = c[1]
+      else
+        c = ""
+      end
+      unless a.empty? || b.empty? || c.empty?
+        task_result << a + ' FROM: ' + b + 'TO: ' + c
+      end
     end
   end
   task_result
 end
 
-=begin
-def task2(input)
+def task_3(input)
   require 'time'
   previous_time = nil
   difference = []
@@ -33,12 +42,12 @@ def task2(input)
       previous_time = time_in_ms
     end
   end
-  difference
+  difference[0]
 end
 
-def task3(input)
+def task_4(input)
   summ = 0
   input.each_char { |c| summ += c.to_i }
   summ
 end
-=end
+
