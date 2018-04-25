@@ -14,7 +14,7 @@ def task2(input)
   task_result = []
   input.each_line do |line|
     unless line.downcase.include? 'error'
-      task_result << line.split('[')[1].split(']')[0] + ' FROM: ' + line.split('-')[0] + 'TO:' + line.split('POST')[1].split('"')[0]
+      task_result << line.split('[')[1].split(']')[0] + ' FROM: ' + line.split('-')[0] + 'TO:' + line.upcase.split('POST')[1].split('"')[0]
     end
   end
   task_result
