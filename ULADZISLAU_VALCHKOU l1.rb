@@ -1,6 +1,6 @@
 #!/bin/env ruby
 
-def task1(input)
+def task_1(input)
   task_result = []
   input.each_line do |line|
     if line.downcase.include? 'error'
@@ -10,7 +10,7 @@ def task1(input)
   task_result
 end
 
-def task2(input)
+def task_2(input)
   task_result = []
   input.each_line do |line|
     unless line.downcase.include? 'error'
