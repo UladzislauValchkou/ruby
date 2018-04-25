@@ -1,13 +1,15 @@
 #!/bin/env ruby
 
 def task1(input)
+  task_result = []
   input.each_line do |line|
     if line.downcase.include? 'error'
-      puts line
+      task_result << line
     else
-      puts line.split('[')[1].split(']')[0] + ' FROM: ' + line.split('-')[0] + 'TO:' + line.split('POST')[1].split('"')[0]
+      task_result << line.split('[')[1].split(']')[0] + ' FROM: ' + line.split('-')[0] + 'TO:' + line.split('POST')[1].split('"')[0]
     end
   end
+  task_result
 end
 
 def task2(input)
