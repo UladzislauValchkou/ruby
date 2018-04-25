@@ -5,13 +5,22 @@ def task1(input)
   input.each_line do |line|
     if line.downcase.include? 'error'
       task_result << line
-    else
+    end
+  end
+  task_result
+end
+
+def task2(input)
+  task_result = []
+  input.each_line do |line|
+    unless line.downcase.include? 'error'
       task_result << line.split('[')[1].split(']')[0] + ' FROM: ' + line.split('-')[0] + 'TO:' + line.split('POST')[1].split('"')[0]
     end
   end
   task_result
 end
 
+=begin
 def task2(input)
   require 'time'
   previous_time = nil
@@ -32,3 +41,4 @@ def task3(input)
   input.each_char { |c| summ += c.to_i }
   summ
 end
+=end
