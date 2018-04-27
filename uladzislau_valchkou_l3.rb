@@ -30,7 +30,7 @@ def task_3_4(_arg1, _arg2, *arg)
       yield(v)
     end
   else
-   'ERROR'
+    'ERROR'
   end
 end
 
