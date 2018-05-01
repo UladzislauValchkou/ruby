@@ -1,7 +1,7 @@
 #!/bin/env ruby
 
 require_relative './server.rb'
-# так же данный файл реализует модуль AwsPlugin у которого есть единственный метод #aws_spawn_server! который устанавливает переданному серверу значение spawned_by == TYPE из класса Aws
+# Top level doc
 module AwsPlugin
   def aws_spawn_server!(server)
     server.spawned_by = Aws::TYPE
@@ -15,6 +15,7 @@ class Aws < Server
   def get_aws_ip!
     @ip = 'aws-2.2.2.2'
   end
+
   def deploy!
     super
     @deployed_by = TYPE

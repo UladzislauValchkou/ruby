@@ -30,8 +30,8 @@ class Kulibin
   def run(shape, server)
     server = set_server_properties(shape, server)
     @steps[:setup].call(server)
-    @steps[:deploy].call(server)
-    @steps[:status].call(server)
+    @steps[:deploy].call(server) if @steps[:deploy]
+    @steps[:status].call(server) if @steps[:status]
   end
 
   def set_server_properties(shape, server)

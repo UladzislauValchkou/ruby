@@ -1,14 +1,14 @@
 #!/bin/env ruby
-# - так же данный файл реализует модуль AzurePlugin у которого есть единственный метод #azure_spawn_server! который устанавливает переданному серверу значение spawned_by == TYPE из класса Azure
+
 require_relative './server.rb'
+# top level doc
 module AzurePlugin
   def azure_spawn_server!(server)
     server.spawned_by = Azure::TYPE
   end
 end
-
+# Top level doc
 class Azure < Server
-
   TYPE = 'azure'.freeze
 
   def get_azure_ip!
@@ -19,6 +19,5 @@ class Azure < Server
   def deploy!
     super
     @deployed_by = TYPE
-    # scaling Server.deploy and sets deployed_by == type
   end
 end
