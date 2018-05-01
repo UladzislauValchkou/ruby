@@ -4,8 +4,8 @@
 class Server
   TYPE = 'base'.freeze
   attr_accessor :deployed_by, :ip, :cpu, :name, :ram, :ssd, :type, :spawned_by
-  
-  def initialize 
+
+  def initialize
     @type = self.class::TYPE
   end
 

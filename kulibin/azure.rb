@@ -1,5 +1,5 @@
 #!/bin/env ruby
-
+# rubocop:disable AccessorMethodName
 require_relative './server.rb'
 # top level doc
 module AzurePlugin
@@ -21,3 +21,4 @@ class Azure < Server
     @deployed_by = TYPE
   end
 end
+# rubocop:enable AccessorMethodName

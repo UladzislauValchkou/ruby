@@ -9,7 +9,7 @@ class Kulibin
 
   def initialize
     @shapes = {}
-    @steps = {}
+    @steps = []
   end
 
   def self.setup
@@ -24,14 +24,17 @@ class Kulibin
   end
 
   def steps(step, &block)
-    @steps[step] = block
+    @steps << {
+      name: step,
+      block: block
+    }
   end
 
   def run(shape, server)
     server = set_server_properties(shape, server)
-    @steps[:setup].call(server)
-    @steps[:deploy].call(server) if @steps[:deploy]
-    @steps[:status].call(server) if @steps[:status]
+    @steps.each do |step|
+      step[:block].call(server)
+    end
   end
 
   def set_server_properties(shape, server)

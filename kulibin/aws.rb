@@ -1,5 +1,5 @@
 #!/bin/env ruby
-
+# rubocop:disable AccessorMethodName
 require_relative './server.rb'
 # Top level doc
 module AwsPlugin
@@ -21,3 +21,4 @@ class Aws < Server
     @deployed_by = TYPE
   end
 end
+# rubocop:enable AccessorMethodName
